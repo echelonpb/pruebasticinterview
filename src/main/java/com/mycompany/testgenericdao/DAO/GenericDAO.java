@@ -12,13 +12,18 @@ import javax.persistence.PersistenceContext;
  *
  * @author pnaca
  */
-public interface GenericDAO<T> {
+public interface GenericDAO <T extends GenericBean> {
     
 
 
     
     default T findById(Long id){
         EM.getEm().createNativeQuery("dgd");
+        
          return null;
+    }
+    default void test(T t){
+        t.getId();
+        
     }
 }
